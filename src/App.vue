@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <BaseMap /> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// import BaseMap from '@/components/common/BaseMap';
+import mapUtils from "@/libs/map.js";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    // BaseMap
+  },
+  data() {
+    return {
+      map: null,
+    };
+  },
+  methods: {
+    initMap() {
+      this.map = mapUtils.createMap("app", {
+        zoomControl: false,
+        maxZoom: 18,
+      });
+      mapUtils.createTileLayer(
+        this.map,
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      );
+    },
+    initEvent() {
+      this.map.on('click', (e) => {
+        mapUtils.createMarker(this.map, e.latlng);
+      });
+    }
+  },
+  mounted() {
+    this.initMap();
+    this.initEvent();
+  },
+};
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
 }
 </style>

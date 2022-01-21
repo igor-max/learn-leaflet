@@ -8,6 +8,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.6",
+    "esri-leaflet": "^3.0.4",
+    "leaflet": "^1.7.1",
+    "leaflet.markercluster": "^1.5.3",
     "vue": "^2.6.11"
   },
   "devDependencies": {

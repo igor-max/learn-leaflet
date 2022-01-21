@@ -1,19 +1,10 @@
-# learn-leaflet
 
-## Project setup
-```
-npm install
-```
+leaflet
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+1. init map
+ - container and options
+2. create and render map(layer)
+3. set center pointer
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+方法是写在 组件中，还是抽离出去（抽离出去更好，不用在实例中获取，且灵活性更好）
